@@ -70,16 +70,16 @@ public class Tests extends BaseTest {
                 .clickOnSubmitButton()
                 .clickOnAddTask()
                 .clickOnTaskItem()
-                .fillTitleField()
+                .fillTitleField("Test_1")
                 .clickOnCreateButton()
                 .getTaskTitle();
 
-        Assertions.assertEquals("Test",taskName);
+        Assertions.assertEquals("Test_1",taskName);
     }
 
     @Test
     @DisplayName("Add a new task test")
-    public void addNewTask2() {
+    public void addNewTaskStream() {
 
         boolean taskList = loginPage
                 .navigateToTheForm()
@@ -88,9 +88,9 @@ public class Tests extends BaseTest {
                 .clickOnSubmitButton()
                 .clickOnAddTask()
                 .clickOnTaskItem()
-                .fillTitleField()
+                .fillTitleField("Test_2")
                 .clickOnCreateButton()
-                .checkListOfTasks();
+                .checkListOfTasks("Test_2");
 
         Assertions.assertTrue(taskList);
     }

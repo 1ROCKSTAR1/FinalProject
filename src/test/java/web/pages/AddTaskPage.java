@@ -10,13 +10,13 @@ public class AddTaskPage {
     noteField = $("textarea[placeholder='Добавить заметку']"),
     createButton = $("button.btn.btn-primary.btn-footer");
 
-    public AddTaskPage fillTitleField() {
-        titleField.sendKeys("Test");
+    public AddTaskPage fillTitleField(String name) {
+        titleField.sendKeys(name);
         return this;
     }
 
-    public AddTaskPage fillNoteField() {
-        noteField.sendKeys("Test");
+    public AddTaskPage fillNoteField(String name) {
+        noteField.sendKeys(name);
         return this;
     }
 

@@ -17,7 +17,7 @@ public class MainPage {
     private final SelenideElement userStats = $(By.cssSelector("div[class='member-stats']")),
     addTaskButton = $x("//div[contains(text(),'Добавить задачу')]"),
     taskButton = $x("//div[text()=' задачу ']"),
-    taskPlaque = $x("//div[@class='task-content']");
+    taskPlaque = $x("//div[@class='task-content']//p[1]");
 
     private final ElementsCollection listOfTasks = $$x("//div[@class='task-content']//p");
 
@@ -49,9 +49,10 @@ public class MainPage {
     }
 
     @Step("Проверка списка задач")
-    public boolean checkListOfTasks() {
-        return listOfTasks.asFixedIterable()
+    public boolean checkListOfTasks(String name) {
+        return listOfTasks
+                .asFixedIterable()
                 .stream()
-                .allMatch(element -> element.getText().contains("Test"));
+                .anyMatch(element -> element.getText().contains(name));
     }
 }

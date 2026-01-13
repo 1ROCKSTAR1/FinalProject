@@ -1,5 +1,7 @@
 package web.tests;
 
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -11,6 +13,8 @@ public class Tests extends BaseTest {
     LoginPage loginPage = new LoginPage();
 
     @Test
+    @Epic("Web")
+    @Feature("Login")
     @DisplayName("Successful Login Test")
     public void successfulLoginTest() {
 
@@ -25,6 +29,8 @@ public class Tests extends BaseTest {
     }
 
     @Test
+    @Epic("Web")
+    @Feature("Login")
     @DisplayName("Login without a username")
     public void loginWithoutUsername() {
 
@@ -37,6 +43,8 @@ public class Tests extends BaseTest {
     }
 
     @Test
+    @Epic("Web")
+    @Feature("Login")
     @DisplayName("Login without a password")
     public void loginWithoutPassword() {
 
@@ -49,6 +57,8 @@ public class Tests extends BaseTest {
     }
 
     @Test
+    @Epic("Web")
+    @Feature("Login")
     @DisplayName("Login without a username and a password")
     public void loginWithoutUsernameAndPassword() {
 
@@ -60,6 +70,8 @@ public class Tests extends BaseTest {
     }
 
     @Test
+    @Epic("Web")
+    @Feature("Task")
     @DisplayName("Add a new task test")
     public void addNewTask() {
 
@@ -78,6 +90,8 @@ public class Tests extends BaseTest {
     }
 
     @Test
+    @Epic("Web")
+    @Feature("Task")
     @DisplayName("Add a new task test")
     public void addNewTaskStream() {
 

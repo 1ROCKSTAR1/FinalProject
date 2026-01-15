@@ -1,24 +1,29 @@
 package api.tests;
 
+import api.models.EmptyFieldResp;
 import api.models.LoginReq;
 import api.models.LoginResp;
+import api.models.NonExistResp;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
-import io.restassured.http.ContentType;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import static api.specs.LoginUserSpec.*;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.notNullValue;
 
-public class LoginTests extends BaseApiTest{
+public class LoginTests extends BaseApiTest {
 
         private static String apiToken;
-        private static String userId;
+        public static String userId;
 
-        LoginReq loginReq = new LoginReq("sir.nevajn@yandex.ru","driver_7890");
+        LoginReq loginReq = new LoginReq("sir.nevajn@yandex.ru", "driver_7890");
+        LoginReq loginNonExistReq = new LoginReq("sir.nevaj@yandex.ru", "driver_7890");
+        LoginReq loginEmptyNameReq = new LoginReq("","driver_7890");
+        LoginReq loginEmptyPasswordReq = new LoginReq("sir.nevajn@yandex.ru","");
 
         @Test
         @Epic("Api")
@@ -26,15 +31,12 @@ public class LoginTests extends BaseApiTest{
         @DisplayName("Логин и получение API id и токена")
         void loginAndGetTokenTest() {
 
-                LoginResp loginResp = given()
-                        .contentType(ContentType.JSON)
-                        .log().all()
+                LoginResp loginResp = given(loginReqSpec)
                         .body(loginReq)
                         .when()
                         .post("/v3/user/auth/local/login")
                         .then()
-                        .log().all()
-                        .statusCode(200)
+                        .spec(successLoginRespSpec)
                         .extract().as(LoginResp.class);
 
                 LoginResp.Data data = loginResp.getData();
@@ -45,5 +47,72 @@ public class LoginTests extends BaseApiTest{
 
                 userId = data.getId();
                 apiToken = data.getApiToken();
+        }
+
+        @Test
+        @Epic("Api")
+        @Feature("Login")
+        @DisplayName("Логин с несуществующим пользователем")
+        void loginNonExistentUserTest() {
+
+                NonExistResp loginNonExistResp = given(loginReqSpec)
+                        .body(loginNonExistReq)
+                        .when()
+                        .post("/v3/user/auth/local/login")
+                        .then()
+                        .spec(nonExistLoginRespSpec)
+                        .extract().as(NonExistResp.class);
+
+                assertThat(loginNonExistResp.getSuccess(), equalTo(false));
+                assertThat(loginNonExistResp.getError(), equalTo("NotAuthorized"));
+                assertThat(loginNonExistResp.getMessage(), notNullValue());
+        }
+
+        @Test
+        @Epic("Api")
+        @Feature("Login")
+        @DisplayName("Логин с пустым именем")
+        void loginEmptyNameUserTest() {
+
+                EmptyFieldResp loginEmptyNameResp = given(loginReqSpec)
+                        .body(loginEmptyNameReq)
+                        .when()
+                        .post("/v3/user/auth/local/login")
+                        .then()
+                        .spec(missedFieldLoginRespSpec)
+                        .extract().as(EmptyFieldResp.class);
+
+                EmptyFieldResp.Error error = new EmptyFieldResp.Error();
+
+                assertThat(loginEmptyNameResp.getSuccess(), equalTo(false));
+                assertThat(loginEmptyNameResp.getError(), equalTo("BadRequest"));
+                assertThat(loginEmptyNameResp.getMessage(), equalTo("Invalid request parameters."));
+
+                assertThat(error.getMessage(),equalTo("Missing username or email."));
+                assertThat(error.getParam(), equalTo("username"));
+        }
+
+        @Test
+        @Epic("Api")
+        @Feature("Login")
+        @DisplayName("Логин с пустым паролем")
+        void loginEmptyPasswordUserTest() {
+
+                EmptyFieldResp loginEmptyPassResp = given(loginReqSpec)
+                        .body(loginEmptyPasswordReq)
+                        .when()
+                        .post("/v3/user/auth/local/login")
+                        .then()
+                        .spec(missedFieldLoginRespSpec)
+                        .extract().as(EmptyFieldResp.class);
+
+                EmptyFieldResp.Error error = new EmptyFieldResp.Error();
+
+                assertThat(loginEmptyPassResp.getSuccess(), equalTo(false));
+                assertThat(loginEmptyPassResp.getError(), equalTo("BadRequest"));
+                assertThat(loginEmptyPassResp.getMessage(), equalTo("Invalid request parameters."));
+
+                assertThat(error.getMessage(),equalTo("Missing password."));
+                assertThat(error.getParam(), equalTo("password"));
         }
 }

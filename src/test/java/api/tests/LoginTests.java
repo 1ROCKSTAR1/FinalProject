@@ -82,7 +82,7 @@ public class LoginTests extends BaseApiTest {
                         .spec(missedFieldLoginRespSpec)
                         .extract().as(EmptyFieldResp.class);
 
-                EmptyFieldResp.Error error = new EmptyFieldResp.Error();
+                EmptyFieldResp.Error error = loginEmptyNameResp.getErrors().get(0);
 
                 assertThat(loginEmptyNameResp.getSuccess(), equalTo(false));
                 assertThat(loginEmptyNameResp.getError(), equalTo("BadRequest"));
@@ -106,7 +106,7 @@ public class LoginTests extends BaseApiTest {
                         .spec(missedFieldLoginRespSpec)
                         .extract().as(EmptyFieldResp.class);
 
-                EmptyFieldResp.Error error = new EmptyFieldResp.Error();
+                EmptyFieldResp.Error error = loginEmptyPassResp.getErrors().get(0);
 
                 assertThat(loginEmptyPassResp.getSuccess(), equalTo(false));
                 assertThat(loginEmptyPassResp.getError(), equalTo("BadRequest"));

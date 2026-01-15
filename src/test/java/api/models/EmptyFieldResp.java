@@ -2,8 +2,11 @@ package api.models;
 
 import io.qameta.allure.internal.shadowed.jackson.annotation.JsonAlias;
 import io.qameta.allure.internal.shadowed.jackson.annotation.JsonIgnoreProperties;
+import io.qameta.allure.internal.shadowed.jackson.annotation.JsonProperty;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -13,8 +16,8 @@ public class EmptyFieldResp {
     private String error;
     private String message;
 
-    @JsonAlias({"errors", "error"}) // Принимает оба варианта
-    private Error errorDetails;
+    @JsonProperty("errors")
+    private List<Error> errors;
 
     @Data
     @NoArgsConstructor

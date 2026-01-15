@@ -22,9 +22,12 @@ public class TagSpec {
                 .build();
     }
 
-    public static RequestSpecification deleteTagSpec() {
+    public static RequestSpecification deleteTagSpec(String userId, String apiToken) {
         return new RequestSpecBuilder()
                 .setContentType(ContentType.JSON)
+                .addHeader("x-api-user", userId)
+                .addHeader("x-api-key", apiToken)
+                .addHeader("X-Client", userId + "-TestApp")
                 .log(LogDetail.ALL)
                 .build();
     }

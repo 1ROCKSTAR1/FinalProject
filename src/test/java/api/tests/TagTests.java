@@ -93,7 +93,9 @@ public class TagTests extends BaseApiTest {
         String tagId = createTagResp.getData().getId();
         DeleteTagReq deleteTagReq = new DeleteTagReq(tagId);
 
-        DeleteTagResp deleteTagResp = given(deleteTagSpec())
+        RequestSpecification deleteTagSpec = TagSpec.deleteTagSpec(userId, apiToken); // ← Используем параметры!
+
+        DeleteTagResp deleteTagResp = given(deleteTagSpec)
                 .body(deleteTagReq)
                 .when()
                 .delete("/v3/tags/" + tagId)

@@ -1,6 +1,7 @@
 package web.pages;
 
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Selenide.$;
 
@@ -10,16 +11,19 @@ public class AddTaskPage {
     noteField = $("textarea[placeholder='Добавить заметку']"),
     createButton = $("button.btn.btn-primary.btn-footer");
 
+    @Step("Filling the title of the task")
     public AddTaskPage fillTitleField(String name) {
         titleField.sendKeys(name);
         return this;
     }
 
+    @Step("Filling the description of the task")
     public AddTaskPage fillNoteField(String name) {
         noteField.sendKeys(name);
         return this;
     }
 
+    @Step("Click on submit | create a task")
     public MainPage clickOnCreateButton() {
         createButton.click();
         return new MainPage();

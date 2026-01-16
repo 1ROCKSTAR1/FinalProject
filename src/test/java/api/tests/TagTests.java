@@ -9,6 +9,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static api.specs.LoginUserSpec.loginReqSpec;
+import static api.specs.LoginUserSpec.successLoginRespSpec;
 import static api.specs.TagSpec.*;
 import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.*;
@@ -28,8 +29,7 @@ public class TagTests extends BaseApiTest {
                 .when()
                 .post("/v3/user/auth/local/login")
                 .then()
-                .log().all()
-                .statusCode(200)
+                .spec(successLoginRespSpec)
                 .extract().as(LoginResp.class);
 
         String userId = loginResp.getData().getId();
@@ -93,8 +93,7 @@ public class TagTests extends BaseApiTest {
         String tagId = createTagResp.getData().getId();
         DeleteTagReq deleteTagReq = new DeleteTagReq(tagId);
 
-        RequestSpecification deleteTagSpec = TagSpec.deleteTagSpec(userId, apiToken); // ← Используем параметры!
-
+        RequestSpecification deleteTagSpec = TagSpec.deleteTagSpec(userId, apiToken);
         DeleteTagResp deleteTagResp = given(deleteTagSpec)
                 .body(deleteTagReq)
                 .when()

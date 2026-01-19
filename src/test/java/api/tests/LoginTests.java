@@ -28,7 +28,7 @@ public class LoginTests extends BaseApiTest {
         @Test
         @Epic("Api")
         @Feature("Login")
-        @DisplayName("Логин и получение API id и токена")
+        @DisplayName("Login and getting API ID and token")
         void loginAndGetTokenTest() {
 
                 LoginResp loginResp = given(loginReqSpec)
@@ -52,7 +52,7 @@ public class LoginTests extends BaseApiTest {
         @Test
         @Epic("Api")
         @Feature("Login")
-        @DisplayName("Логин с несуществующим пользователем")
+        @DisplayName("Login with non-existent user")
         void loginNonExistentUserTest() {
 
                 NonExistResp loginNonExistResp = given(loginReqSpec)
@@ -71,7 +71,7 @@ public class LoginTests extends BaseApiTest {
         @Test
         @Epic("Api")
         @Feature("Login")
-        @DisplayName("Логин с пустым именем")
+        @DisplayName("Login with an empty name")
         void loginEmptyNameUserTest() {
 
                 EmptyFieldResp loginEmptyNameResp = given(loginReqSpec)
@@ -95,7 +95,7 @@ public class LoginTests extends BaseApiTest {
         @Test
         @Epic("Api")
         @Feature("Login")
-        @DisplayName("Логин с пустым паролем")
+        @DisplayName("Login with an empty password")
         void loginEmptyPasswordUserTest() {
 
                 EmptyFieldResp loginEmptyPassResp = given(loginReqSpec)

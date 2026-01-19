@@ -22,7 +22,7 @@ public class TagTests extends BaseApiTest {
     @Test
     @Epic("Api")
     @Feature("Tag")
-    @DisplayName("Создание тега пользователя")
+    @DisplayName("Creating a user's tag")
     public void createUserTagTest() {
 
         LoginReq loginReq = new LoginReq("sir.nevajn@yandex.ru", "driver_7890");
@@ -58,7 +58,7 @@ public class TagTests extends BaseApiTest {
     @Test
     @Epic("Api")
     @Feature("Tag")
-    @DisplayName("Создание и удаление тега пользователя")
+    @DisplayName("Creating and deleting a user's tag")
     public void createUserTagAndDeleteTest() {
 
         LoginReq loginReq = new LoginReq("sir.nevajn@yandex.ru", "driver_7890");

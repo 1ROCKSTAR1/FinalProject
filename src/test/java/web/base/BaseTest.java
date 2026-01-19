@@ -11,13 +11,13 @@ import org.junit.jupiter.api.BeforeEach;
 
 public class BaseTest {
 
-    String login = "sir.nevajn@yandex.ru";
-    String password = "driver_7890";
+    public String login = "sir.nevajn@yandex.ru";
+    public String password = "driver_7890";
 
     @BeforeAll
     static void setUp() {
 
-        Configuration.baseUrl = "https://demowebshop.tricentis.com/";
+        Configuration.baseUrl = "https://habitica.com/login";
         Configuration.browserSize = "1920x1200";
         Configuration.pageLoadStrategy = "eager";
         Configuration.timeout = 10000;

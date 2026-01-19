@@ -16,21 +16,21 @@ public class LoginPage {
             passwordField = $(By.cssSelector("input[type='password']")),
             submitButton = $(By.cssSelector("button[type='Submit']"));
 
-    @Step("Переход на страницу")
+    @Step("Go to the site")
     public LoginPage navigateToTheForm() {
         open("https://habitica.com/login");
         return this;
     }
 
-    @Step("Заполнение логина")
-    public LoginPage fillTheLoginField() {
-        loginField.sendKeys("sir.nevajn@yandex.ru");
+    @Step("Filling login")
+    public LoginPage fillTheLoginField(String login) {
+        loginField.sendKeys(login);
         return this;
     }
 
-    @Step("Заполнение пароля")
-    public LoginPage fillThePasswordField() {
-        passwordField.sendKeys("driver_7890");
+    @Step("Filling password")
+    public LoginPage fillThePasswordField(String password) {
+        passwordField.sendKeys(password);
         return this;
     }
 
@@ -40,7 +40,7 @@ public class LoginPage {
         return new MainPage();
     }
 
-    @Step("Получение статуса видимости статистики пользователя")
+    @Step("Getting the status of the button")
     public boolean checkSubmitClickable() {
         try {
             submitButton.shouldNotBe(clickable, Duration.ofSeconds(5));

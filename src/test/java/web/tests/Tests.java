@@ -18,14 +18,14 @@ public class Tests extends BaseTest {
     @DisplayName("Successful Login Test")
     public void successfulLoginTest() {
 
-        boolean actualUserStatsCondition = loginPage
+        String actualUserInnerName = loginPage
                 .navigateToTheForm()
-                .fillTheLoginField()
-                .fillThePasswordField()
+                .fillTheLoginField(login)
+                .fillThePasswordField(password)
                 .clickOnSubmitButton()
-                .checkUserStatsShown();
+                .getInnerUserName();
 
-        Assertions.assertTrue(actualUserStatsCondition);
+        Assertions.assertEquals("sirnevajn", actualUserInnerName);
     }
 
     @Test
@@ -36,7 +36,7 @@ public class Tests extends BaseTest {
 
         boolean actualSubmitButtonCondition = loginPage
                 .navigateToTheForm()
-                .fillThePasswordField()
+                .fillThePasswordField(password)
                 .checkSubmitClickable();
 
         Assertions.assertTrue(actualSubmitButtonCondition);
@@ -50,7 +50,7 @@ public class Tests extends BaseTest {
 
         boolean actualSubmitButtonCondition = loginPage
                 .navigateToTheForm()
-                .fillTheLoginField()
+                .fillTheLoginField(login)
                 .checkSubmitClickable();
 
         Assertions.assertTrue(actualSubmitButtonCondition);
@@ -77,8 +77,8 @@ public class Tests extends BaseTest {
 
         String taskName = loginPage
                 .navigateToTheForm()
-                .fillTheLoginField()
-                .fillThePasswordField()
+                .fillTheLoginField(login)
+                .fillThePasswordField(password)
                 .clickOnSubmitButton()
                 .clickOnAddTask()
                 .clickOnTaskItem()
@@ -97,8 +97,8 @@ public class Tests extends BaseTest {
 
         boolean taskList = loginPage
                 .navigateToTheForm()
-                .fillTheLoginField()
-                .fillThePasswordField()
+                .fillTheLoginField(login)
+                .fillThePasswordField(password)
                 .clickOnSubmitButton()
                 .clickOnAddTask()
                 .clickOnTaskItem()

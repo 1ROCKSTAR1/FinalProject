@@ -12,7 +12,7 @@ import static io.restassured.filter.log.LogDetail.STATUS;
 
 public class TagSpec {
 
-    public static RequestSpecification createTagSpec(String userId, String apiToken) {
+    public static RequestSpecification baseTagSpecBuilder(String userId, String apiToken) {
         return new RequestSpecBuilder()
                 .setContentType(ContentType.JSON)
                 .addHeader("x-api-user", userId)
@@ -22,14 +22,12 @@ public class TagSpec {
                 .build();
     }
 
+    public static RequestSpecification createTagSpec(String userId, String apiToken) {
+        return baseTagSpecBuilder(userId, apiToken);
+    }
+
     public static RequestSpecification deleteTagSpec(String userId, String apiToken) {
-        return new RequestSpecBuilder()
-                .setContentType(ContentType.JSON)
-                .addHeader("x-api-user", userId)
-                .addHeader("x-api-key", apiToken)
-                .addHeader("X-Client", userId + "-TestApp")
-                .log(LogDetail.ALL)
-                .build();
+        return baseTagSpecBuilder(userId, apiToken);
     }
 
         public static ResponseSpecification successCreateTagRespSpec = new ResponseSpecBuilder()

@@ -36,7 +36,7 @@ public class LoginTests extends BaseApiTest {
                         .when()
                         .post("/v3/user/auth/local/login")
                         .then()
-                        .spec(successLoginRespSpec)
+                        .spec(statusCodeSpec(200))
                         .extract().as(LoginResp.class);
 
                 LoginResp.Data data = loginResp.getData();
@@ -60,7 +60,7 @@ public class LoginTests extends BaseApiTest {
                         .when()
                         .post("/v3/user/auth/local/login")
                         .then()
-                        .spec(nonExistLoginRespSpec)
+                        .spec(statusCodeSpec(401))
                         .extract().as(NonExistResp.class);
 
                 assertThat(loginNonExistResp.getSuccess(), equalTo(false));
@@ -79,7 +79,7 @@ public class LoginTests extends BaseApiTest {
                         .when()
                         .post("/v3/user/auth/local/login")
                         .then()
-                        .spec(missedFieldLoginRespSpec)
+                        .spec(statusCodeSpec(400))
                         .extract().as(EmptyFieldResp.class);
 
                 EmptyFieldResp.Error error = loginEmptyNameResp.getErrors().get(0);
@@ -103,7 +103,7 @@ public class LoginTests extends BaseApiTest {
                         .when()
                         .post("/v3/user/auth/local/login")
                         .then()
-                        .spec(missedFieldLoginRespSpec)
+                        .spec(statusCodeSpec(400))
                         .extract().as(EmptyFieldResp.class);
 
                 EmptyFieldResp.Error error = loginEmptyPassResp.getErrors().get(0);

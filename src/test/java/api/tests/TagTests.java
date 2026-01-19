@@ -2,6 +2,7 @@ package api.tests;
 
 import api.models.*;
 import api.specs.TagSpec;
+import data.TestData;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.restassured.specification.RequestSpecification;
@@ -9,12 +10,14 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static api.specs.LoginUserSpec.loginReqSpec;
-import static api.specs.LoginUserSpec.successLoginRespSpec;
+import static api.specs.LoginUserSpec.statusCodeSpec;
 import static api.specs.TagSpec.*;
 import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TagTests extends BaseApiTest {
+
+    TestData testData = new TestData();
 
     @Test
     @Epic("Api")
@@ -29,14 +32,13 @@ public class TagTests extends BaseApiTest {
                 .when()
                 .post("/v3/user/auth/local/login")
                 .then()
-                .spec(successLoginRespSpec)
+                .spec(statusCodeSpec(200))
                 .extract().as(LoginResp.class);
 
         String userId = loginResp.getData().getId();
         String apiToken = loginResp.getData().getApiToken();
 
-        String tagName = faker.name().firstName();
-        CreateTagReq createTagReq = new CreateTagReq(tagName);
+        CreateTagReq createTagReq = new CreateTagReq(testData.tagName);
 
         RequestSpecification authSpec = TagSpec.createTagSpec(userId, apiToken);
 
@@ -49,7 +51,7 @@ public class TagTests extends BaseApiTest {
                 .extract().as(CreateTagResp.class);
 
         assertTrue(createTagResp.getSuccess());
-        assertEquals(tagName, createTagResp.getData().getName());
+        assertEquals(testData.tagName, createTagResp.getData().getName());
         assertNotNull(createTagResp.getData().getId());
     }
 
@@ -66,15 +68,13 @@ public class TagTests extends BaseApiTest {
                 .when()
                 .post("/v3/user/auth/local/login")
                 .then()
-                .log().all()
-                .statusCode(200)
+                .spec(statusCodeSpec(200))
                 .extract().as(LoginResp.class);
 
         String userId = loginResp.getData().getId();
         String apiToken = loginResp.getData().getApiToken();
 
-        String tagName = faker.name().firstName();
-        CreateTagReq createTagReq = new CreateTagReq(tagName);
+        CreateTagReq createTagReq = new CreateTagReq(testData.tagName);
 
         RequestSpecification authSpec = TagSpec.createTagSpec(userId, apiToken);
 
@@ -87,7 +87,7 @@ public class TagTests extends BaseApiTest {
                 .extract().as(CreateTagResp.class);
 
         assertTrue(createTagResp.getSuccess());
-        assertEquals(tagName, createTagResp.getData().getName());
+        assertEquals(testData.tagName, createTagResp.getData().getName());
         assertNotNull(createTagResp.getData().getId());
 
         String tagId = createTagResp.getData().getId();

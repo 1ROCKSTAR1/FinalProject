@@ -16,21 +16,11 @@ public class LoginUserSpec {
             .log().body()
             .log().headers();
 
-    public static ResponseSpecification successLoginRespSpec = new ResponseSpecBuilder()
-            .expectStatusCode(200)
-            .log(STATUS)
-            .log(BODY)
-            .build();
-
-    public static ResponseSpecification missedFieldLoginRespSpec = new ResponseSpecBuilder()
-            .expectStatusCode(400)
-            .log(STATUS)
-            .log(BODY)
-            .build();
-
-    public static ResponseSpecification nonExistLoginRespSpec = new ResponseSpecBuilder()
-            .expectStatusCode(401)
-            .log(STATUS)
-            .log(BODY)
-            .build();
+    public static ResponseSpecification statusCodeSpec(int expectedStatusCode) {
+        return new ResponseSpecBuilder()
+                .expectStatusCode(expectedStatusCode)
+                .log(STATUS)
+                .log(BODY)
+                .build();
+    }
 }

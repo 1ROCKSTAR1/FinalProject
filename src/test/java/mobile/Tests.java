@@ -7,13 +7,13 @@ import org.junit.jupiter.api.Test;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 
-public class Tests {
+public class Tests extends BaseEmulatorTest {
 
     @Test
     @DisplayName("The first initial test without POM")
     public void loginTest() {
-        back();
 
+        $(AppiumBy.xpath("//android.widget.TextView[@text='Skip']")).click();
         $(AppiumBy.xpath("//android.widget.TextView[@text='Login']")).click();
         $(AppiumBy.xpath("//android.widget.TextView[@text='Username or email']")).sendKeys("sir.nevajn@yandex.ru");
         $(AppiumBy.xpath("//android.widget.TextView[@text='Password']")).sendKeys("driver_7890");

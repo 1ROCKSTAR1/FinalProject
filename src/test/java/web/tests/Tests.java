@@ -4,10 +4,12 @@ import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import web.base.BaseTest;
 import web.pages.LoginPage;
 
+@Tag("web")
 public class Tests extends BaseTest {
 
     LoginPage loginPage = new LoginPage();

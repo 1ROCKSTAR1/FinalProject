@@ -54,3 +54,39 @@ tasks.withType(Test) {
         }
     }
 }
+
+// Запуск web тестов
+task web_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("web")
+    }
+
+    // Явно передаем системные свойства
+    systemProperties System.getProperties()
+
+    // Устанавливаем env по умолчанию
+    systemProperty 'env', System.getProperty('env', 'web')
+
+    testLogging {
+        events "passed", "skipped", "failed", "standard_out", "standard_error"
+        exceptionFormat "full"
+    }
+}
+
+// Запуск api тестов
+task api_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("api")
+    }
+    systemProperties System.getProperties()
+    systemProperty "env", "api" // Используем api.properties для api
+}
+
+// Запуск mobile тестов
+task mobile_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("mobile")
+    }
+    systemProperties System.getProperties()
+    systemProperty "env", "mobile" // Используем mobile.properties для mobile
+}

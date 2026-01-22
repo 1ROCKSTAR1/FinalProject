@@ -7,6 +7,7 @@ import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.restassured.specification.RequestSpecification;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static api.specs.LoginUserSpec.loginReqSpec;
@@ -15,6 +16,7 @@ import static api.specs.TagSpec.*;
 import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.*;
 
+@Tag("api")
 public class TagTests extends BaseApiTest {
 
     TestData testData = new TestData();

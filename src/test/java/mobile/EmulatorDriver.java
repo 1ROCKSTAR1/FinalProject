@@ -1,8 +1,10 @@
 package mobile;
 
 import com.codeborne.selenide.WebDriverProvider;
+import config.MobileConfig;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
+import org.aeonbits.owner.ConfigFactory;
 import org.jspecify.annotations.NonNull;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebDriver;
@@ -18,15 +20,17 @@ public class EmulatorDriver implements WebDriverProvider {
     public WebDriver createDriver(@NonNull Capabilities capabilities) {
         UiAutomator2Options options = new UiAutomator2Options();
 
+        MobileConfig config = ConfigFactory.create(MobileConfig.class);
+
         // Базовые настройки
-        options.setCapability("platformName", "Android");
+        options.setCapability("platformName", config.platformName());
         options.setCapability("appium:automationName", "UiAutomator2");
 
         // Локальные настройки
-        options.setCapability("appium:appPackage", "com.habitrpg.android.habitica");
-        options.setCapability("appium:appActivity", "com.habitrpg.android.habitica.ui.activities.MainActivity");
-        options.setCapability("appium:deviceName", "emulator-5554");
-        options.setCapability("appium:platformVersion", "11.0");
+        options.setCapability("appium:appPackage", config.appPackage());
+        options.setCapability("appium:appActivity", config.appActivity());
+        options.setCapability("appium:deviceName", config.deviceName());
+        options.setCapability("appium:platformVersion", config.platformVersion());
         options.setCapability("appium:autoGrantPermissions", true);
         options.setCapability("appium:noReset", false);
         options.setCapability("appium:fullReset", false);

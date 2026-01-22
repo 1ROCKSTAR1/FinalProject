@@ -3,23 +3,27 @@ package web.base;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
+import config.WebConfig;
 import helpers.Attach;
 import io.qameta.allure.selenide.AllureSelenide;
+import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 
 public class BaseTest {
 
-    public String login = "sir.nevajn@yandex.ru";
-    public String password = "driver_7890";
+    protected static WebConfig config = ConfigFactory.create(WebConfig.class);
+
+    public String login = config.login();
+    public String password = config.password();
 
     @BeforeAll
     static void setUp() {
 
-        Configuration.baseUrl = "https://habitica.com/login";
-        Configuration.browserSize = "1920x1200";
-        Configuration.pageLoadStrategy = "eager";
+        Configuration.baseUrl = config.baseUrl();
+        Configuration.browserSize = config.browserSize();
+        Configuration.pageLoadStrategy = config.pageLoadStrategy();
         Configuration.timeout = 10000;
 
     }

@@ -10,7 +10,6 @@ import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.util.Map;
@@ -70,14 +69,6 @@ public class BaseTest {
                             "enableLog", config.logsEnable()
                     )
             );
-
-            if ("chrome".equals(config.browser())) {
-                ChromeOptions chromeOptions = new ChromeOptions();
-                chromeOptions.addArguments("--no-sandbox");
-                chromeOptions.addArguments("--disable-dev-shm-usage");
-                chromeOptions.addArguments("--disable-gpu");
-                capabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
-            }
 
             Configuration.browserCapabilities = capabilities;
         } else {

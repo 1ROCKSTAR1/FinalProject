@@ -2,7 +2,10 @@ package config;
 
 import org.aeonbits.owner.Config;
 
-@Config.Sources("classpath:${config:web}.properties")
+@Config.Sources({
+        "classpath:config/${config}.properties",
+        "classpath:config/web.properties"  // fallback для недостающих свойств
+})
 public interface WebConfig extends Config {
 
     @Key("browser")
@@ -28,4 +31,24 @@ public interface WebConfig extends Config {
     @Key("password")
     @DefaultValue("driver_7890")
     String password();
+
+    // SELENOID
+    @Key("is.remote")
+    boolean isRemote();
+
+    @Key("remote.url")
+    @DefaultValue("")
+    String remoteUrl();
+
+    @Key("selenoid.vnc.enable")
+    @DefaultValue("false")
+    boolean vncEnable();
+
+    @Key("selenoid.video.enable")
+    @DefaultValue("false")
+    boolean videoEnable();
+
+    @Key("selenoid.logs.enable")
+    @DefaultValue("false")
+    boolean logsEnable();
 }

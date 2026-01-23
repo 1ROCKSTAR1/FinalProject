@@ -66,6 +66,21 @@ task web_test(type: Test) {
     systemProperties System.getProperties()
 }
 
+// Запуск web тестов на SELENOID
+task web_remote_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("web")
+    }
+    systemProperties System.getProperties()
+
+    systemProperty 'config', 'config/remote'
+
+    testLogging {
+        events "passed", "skipped", "failed", "standard_out", "standard_error"
+        exceptionFormat "full"
+    }
+}
+
 // Запуск api тестов
 task api_test(type: Test) {
     useJUnitPlatform {

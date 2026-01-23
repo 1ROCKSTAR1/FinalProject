@@ -33,7 +33,10 @@ dependencies {
     testImplementation 'io.qameta.allure:allure-selenide:2.24.0'
     testImplementation 'io.rest-assured:rest-assured:5.5.0'
     testImplementation 'io.qameta.allure:allure-rest-assured:2.24.0'
-    testImplementation 'io.appium:java-client:10.0.0'
+    testImplementation('io.appium:java-client:10.0.0') {
+        exclude group: 'org.seleniumhq.selenium'
+        exclude group: 'io.opentelemetry'
+    }
     testImplementation 'org.aeonbits.owner:owner:1.0.12'
     testImplementation 'commons-io:commons-io:2.15.1'
     testImplementation 'org.assertj:assertj-core:3.27.6'
@@ -60,17 +63,7 @@ task web_test(type: Test) {
     useJUnitPlatform {
         includeTags("web")
     }
-
-    // Явно передаем системные свойства
     systemProperties System.getProperties()
-
-    // Устанавливаем env по умолчанию
-    systemProperty 'env', System.getProperty('env', 'web')
-
-    testLogging {
-        events "passed", "skipped", "failed", "standard_out", "standard_error"
-        exceptionFormat "full"
-    }
 }
 
 // Запуск api тестов
@@ -79,7 +72,6 @@ task api_test(type: Test) {
         includeTags("api")
     }
     systemProperties System.getProperties()
-    systemProperty "env", "api" // Используем api.properties для api
 }
 
 // Запуск mobile тестов
@@ -88,5 +80,4 @@ task mobile_test(type: Test) {
         includeTags("mobile")
     }
     systemProperties System.getProperties()
-    systemProperty "env", "mobile" // Используем mobile.properties для mobile
 }

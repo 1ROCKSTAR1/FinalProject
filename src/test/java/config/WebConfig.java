@@ -2,8 +2,12 @@ package config;
 
 import org.aeonbits.owner.Config;
 
-@Config.Sources("classpath:config/web.properties")
+@Config.Sources("classpath:${config:web}.properties")
 public interface WebConfig extends Config {
+
+    @Key("browser")
+    @DefaultValue("chrome")
+    String browser();
 
     @Key("baseUrl")
     @DefaultValue("https://habitica.com")

@@ -2,10 +2,8 @@ package config;
 
 import org.aeonbits.owner.Config;
 
-@Config.Sources({
-        "classpath:config/${env}.properties",
-        "classpath:config/api.properties"
-})
+
+@Config.Sources("classpath:${config:api}.properties")
 public interface ApiConfig extends Config{
 
     @Key("baseUri")

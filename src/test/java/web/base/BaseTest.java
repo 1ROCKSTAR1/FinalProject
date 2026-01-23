@@ -13,14 +13,14 @@ import org.junit.jupiter.api.BeforeEach;
 
 public class BaseTest {
 
-    protected static WebConfig config = ConfigFactory.create(WebConfig.class);
+    private static final WebConfig config = ConfigFactory.create(WebConfig.class, System.getProperties());
 
     public String login = config.login();
     public String password = config.password();
 
     @BeforeAll
     static void setUp() {
-
+        Configuration.browser = config.browser();
         Configuration.baseUrl = config.baseUrl();
         Configuration.browserSize = config.browserSize();
         Configuration.pageLoadStrategy = config.pageLoadStrategy();

@@ -2,10 +2,7 @@ package config;
 
 import org.aeonbits.owner.Config;
 
-@Config.Sources({
-        "classpath:config/${env}.properties",
-        "classpath:config/mobile.properties"
-})
+@Config.Sources("classpath:${config:mobile}.properties")
 public interface MobileConfig extends Config {
 
     @Key("platform.name")

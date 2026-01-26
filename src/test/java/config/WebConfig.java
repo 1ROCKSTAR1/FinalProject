@@ -36,6 +36,7 @@ public interface WebConfig extends Config {
     @Key("is.remote")
     boolean isRemote();
 
+    //TODO проверить в случае ошибки удаленного запуска
     @Key("remote.url")
     @DefaultValue("")
     String remoteUrl();

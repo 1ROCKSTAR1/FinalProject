@@ -71,6 +71,7 @@ task web_remote_test(type: Test) {
     useJUnitPlatform {
         includeTags("web")
     }
+    systemProperties System.getProperties()
 }
 
 // Запуск api тестов

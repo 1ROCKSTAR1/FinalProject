@@ -13,6 +13,7 @@ import org.junit.jupiter.api.Test;
 import static api.specs.LoginUserSpec.loginReqSpec;
 import static api.specs.LoginUserSpec.statusCodeSpec;
 import static api.specs.TagSpec.*;
+import static io.qameta.allure.Allure.step;
 import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -26,35 +27,40 @@ public class TagTests extends BaseApiTest {
     @Feature("Tag")
     @DisplayName("Creating a user's tag")
     public void createUserTagTest() {
+        step("Create a request", ()-> {
+            LoginReq loginReq = new LoginReq("sir.nevajn@yandex.ru", "driver_7890");
 
-        LoginReq loginReq = new LoginReq("sir.nevajn@yandex.ru", "driver_7890");
+            LoginResp loginResp = given(loginReqSpec)
+                    .body(loginReq)
+                    .when()
+                    .post("/v3/user/auth/local/login")
+                    .then()
+                    .spec(statusCodeSpec(200))
+                    .extract().as(LoginResp.class);
 
-        LoginResp loginResp = given(loginReqSpec)
-                .body(loginReq)
-                .when()
-                .post("/v3/user/auth/local/login")
-                .then()
-                .spec(statusCodeSpec(200))
-                .extract().as(LoginResp.class);
+            String userId = loginResp.getData().getId();
+            String apiToken = loginResp.getData().getApiToken();
 
-        String userId = loginResp.getData().getId();
-        String apiToken = loginResp.getData().getApiToken();
+            step("Create a tag and check a final response", ()-> {
+                CreateTagReq createTagReq = new CreateTagReq(testData.tagName);
 
-        CreateTagReq createTagReq = new CreateTagReq(testData.tagName);
+                RequestSpecification authSpec = TagSpec.createTagSpec(userId, apiToken);
 
-        RequestSpecification authSpec = TagSpec.createTagSpec(userId, apiToken);
+                CreateTagResp createTagResp = given(authSpec)
+                        .body(createTagReq)
+                        .when()
+                        .post("/v3/tags")
+                        .then()
+                        .spec(successCreateTagRespSpec)
+                        .extract().as(CreateTagResp.class);
 
-        CreateTagResp createTagResp = given(authSpec)
-                .body(createTagReq)
-                .when()
-                .post("/v3/tags")
-                .then()
-                .spec(successCreateTagRespSpec)
-                .extract().as(CreateTagResp.class);
 
-        assertTrue(createTagResp.getSuccess());
-        assertEquals(testData.tagName, createTagResp.getData().getName());
-        assertNotNull(createTagResp.getData().getId());
+                assertTrue(createTagResp.getSuccess());
+                assertEquals(testData.tagName, createTagResp.getData().getName());
+                assertNotNull(createTagResp.getData().getId());
+            });
+
+        });
     }
 
     @Test
@@ -63,47 +69,53 @@ public class TagTests extends BaseApiTest {
     @DisplayName("Creating and deleting a user's tag")
     public void createUserTagAndDeleteTest() {
 
-        LoginReq loginReq = new LoginReq("sir.nevajn@yandex.ru", "driver_7890");
+        step("Create a request", ()-> {
+            LoginReq loginReq = new LoginReq("sir.nevajn@yandex.ru", "driver_7890");
 
-        LoginResp loginResp = given(loginReqSpec)
-                .body(loginReq)
-                .when()
-                .post("/v3/user/auth/local/login")
-                .then()
-                .spec(statusCodeSpec(200))
-                .extract().as(LoginResp.class);
+            LoginResp loginResp = given(loginReqSpec)
+                    .body(loginReq)
+                    .when()
+                    .post("/v3/user/auth/local/login")
+                    .then()
+                    .spec(statusCodeSpec(200))
+                    .extract().as(LoginResp.class);
 
-        String userId = loginResp.getData().getId();
-        String apiToken = loginResp.getData().getApiToken();
+            String userId = loginResp.getData().getId();
+            String apiToken = loginResp.getData().getApiToken();
 
-        CreateTagReq createTagReq = new CreateTagReq(testData.tagName);
+            step("Create and delete a new tag", ()-> {
+                CreateTagReq createTagReq = new CreateTagReq(testData.tagName);
 
-        RequestSpecification authSpec = TagSpec.createTagSpec(userId, apiToken);
+                RequestSpecification authSpec = TagSpec.createTagSpec(userId, apiToken);
 
-        CreateTagResp createTagResp = given(authSpec)
-                .body(createTagReq)
-                .when()
-                .post("/v3/tags")
-                .then()
-                .spec(successCreateTagRespSpec)
-                .extract().as(CreateTagResp.class);
+                CreateTagResp createTagResp = given(authSpec)
+                        .body(createTagReq)
+                        .when()
+                        .post("/v3/tags")
+                        .then()
+                        .spec(successCreateTagRespSpec)
+                        .extract().as(CreateTagResp.class);
 
-        assertTrue(createTagResp.getSuccess());
-        assertEquals(testData.tagName, createTagResp.getData().getName());
-        assertNotNull(createTagResp.getData().getId());
+                assertTrue(createTagResp.getSuccess());
+                assertEquals(testData.tagName, createTagResp.getData().getName());
+                assertNotNull(createTagResp.getData().getId());
 
-        String tagId = createTagResp.getData().getId();
-        DeleteTagReq deleteTagReq = new DeleteTagReq(tagId);
 
-        RequestSpecification deleteTagSpec = TagSpec.deleteTagSpec(userId, apiToken);
-        DeleteTagResp deleteTagResp = given(deleteTagSpec)
-                .body(deleteTagReq)
-                .when()
-                .delete("/v3/tags/" + tagId)
-                .then()
-                .spec(successDeleteTagRespSpec)
-                .extract().as(DeleteTagResp.class);
+                String tagId = createTagResp.getData().getId();
+                DeleteTagReq deleteTagReq = new DeleteTagReq(tagId);
 
-        assertTrue(deleteTagResp.getSuccess());
+                RequestSpecification deleteTagSpec = TagSpec.deleteTagSpec(userId, apiToken);
+                DeleteTagResp deleteTagResp = given(deleteTagSpec)
+                        .body(deleteTagReq)
+                        .when()
+                        .delete("/v3/tags/" + tagId)
+                        .then()
+                        .spec(successDeleteTagRespSpec)
+                        .extract().as(DeleteTagResp.class);
+
+                assertTrue(deleteTagResp.getSuccess());
+            });
+
+        });
     }
 }

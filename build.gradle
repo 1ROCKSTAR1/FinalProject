@@ -58,16 +58,8 @@ tasks.withType(Test) {
     }
 }
 
-// Запуск web тестов
-task web_test(type: Test) {
-    useJUnitPlatform {
-        includeTags("web")
-    }
-    systemProperties System.getProperties()
-}
-
 // Запуск web тестов на SELENOID
-task web_remote_test(type: Test) {
+task web_test(type: Test) {
     useJUnitPlatform {
         includeTags("web")
     }

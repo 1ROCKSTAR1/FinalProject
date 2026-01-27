@@ -42,14 +42,14 @@ public interface WebConfig extends Config {
     String remoteUrl();
 
     @Key("selenoid.vnc.enable")
-    @DefaultValue("false")
+    @DefaultValue("true")
     boolean vncEnable();
 
     @Key("selenoid.video.enable")
-    @DefaultValue("false")
+    @DefaultValue("true")
     boolean videoEnable();
 
     @Key("selenoid.logs.enable")
-    @DefaultValue("false")
+    @DefaultValue("true")
     boolean logsEnable();
 }

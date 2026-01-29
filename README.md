@@ -167,3 +167,21 @@ gradle clean mobile_test
 <p align="center">
 <img src="src/images/screenshots/Allure1.png">
 </p>
+
+## Уведомление в Telegram
+
+По результатам каждого прогона тестов в Jenkins отправляется сообщение в Telegram. Сообщение содержит информацию о прогоне, а также диаграмму со статистикой прохождения тестов.
+
+<p align="center">
+<img src="src/images/screenshots/tg1.png" width="400">
+</p>
+
+<a id="video"></a>
+
+## Видео с примером запуска тестов в Selenoid
+В Allure отчёте к каждому тесту прикладываются скриншот с последнего шага, и видео прохождения теста. Примеры таких видео:
+
+<p align="center">
+<img src="src/images/gif/selenoid.gif " width="1000">
+</p>
+

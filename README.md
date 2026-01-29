@@ -152,11 +152,11 @@ gradle clean mobile_test
 Для запуска тестов в Jenkins нужно нажать на кнопку Build with parameters и выбрать необходимый скоуп тестов web/api
 
 <p align="center">
-<img src="images/screenshots/jenkins1.png">
+<img src="src/images/screenshots/jenkins1.png">
 </p>
 
 <p align="center">
-<img src="images/screenshots/jenkins2.png">
+<img src="src/images/screenshots/jenkins2.png">
 </p>
 
 <a id="report"></a>

@@ -160,3 +160,10 @@ gradle clean mobile_test
 </p>
 
 <a id="report"></a>
+
+## [Allure отчёт](https://jenkins.autotests.cloud/job/%D0%A138_Aastri_Final_Project/allure/)
+### Графики
+
+<p align="center">
+<img src="src/images/screenshots/Allure1.png">
+</p>

@@ -89,7 +89,7 @@ CI/CD и управление:
 ![](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white)
 ![](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
 
-🚀 Возможности фреймворка:
+## 🚀 Возможности фреймворка:
 
 
 🌐 Веб-тестирование

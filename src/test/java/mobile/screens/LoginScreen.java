@@ -31,5 +31,4 @@ public class LoginScreen {
         submitButtonLogin.click();
         return new AccountScreen();
     }
-
 }

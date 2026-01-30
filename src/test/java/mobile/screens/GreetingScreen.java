@@ -7,10 +7,10 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class GreetingScreen {
 
-    private SelenideElement skipButton = $(AppiumBy.xpath("//android.widget.TextView[@text='Skip']"));
+    private SelenideElement skipButton = $(AppiumBy.xpath("//android.widget.Button[@resource-id='com.habitrpg.android.habitica:id/skipButton']"));
 
-    public LoginScreen clickOnSkip() {
+    public SignupLoginScreen clickOnSkip() {
         skipButton.click();
-        return new LoginScreen();
+        return new SignupLoginScreen();
     }
 }

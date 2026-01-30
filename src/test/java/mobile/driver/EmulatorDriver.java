@@ -10,42 +10,57 @@ import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebDriver;
 
 import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import static io.appium.java_client.remote.AutomationName.ANDROID_UIAUTOMATOR2;
+import static io.appium.java_client.remote.MobilePlatform.ANDROID;
+import static org.apache.commons.io.FileUtils.copyInputStreamToFile;
+
 public class EmulatorDriver implements WebDriverProvider {
+
+    MobileConfig config = ConfigFactory.create(MobileConfig.class);
 
     @NonNull
     @Override
     public WebDriver createDriver(@NonNull Capabilities capabilities) {
         UiAutomator2Options options = new UiAutomator2Options();
 
-        MobileConfig config = ConfigFactory.create(MobileConfig.class);
+        options.setAutomationName(ANDROID_UIAUTOMATOR2)
+                .setPlatformName(ANDROID)
+                .setDeviceName(config.deviceName())
+                .setPlatformVersion(config.platformVersion())
+                .setApp(getAppPath())
+                .setAppPackage(config.appPackage())
+                .setAppActivity(config.appActivity());
+        return new AndroidDriver(getAppiumServerURL(), options);
+    }
 
-        // Базовые настройки
-        options.setCapability("platformName", config.platformName());
-        options.setCapability("appium:automationName", "UiAutomator2");
-
-        // Локальные настройки
-        options.setCapability("appium:appPackage", config.appPackage());
-        options.setCapability("appium:appActivity", config.appActivity());
-        options.setCapability("appium:deviceName", config.deviceName());
-        options.setCapability("appium:platformVersion", config.platformVersion());
-        options.setCapability("appium:autoGrantPermissions", true);
-        options.setCapability("appium:noReset", false);
-        options.setCapability("appium:fullReset", false);
-
-        // Если есть локальный APK файл
-        File app = new File("src/test/resources/apps/Habitica-2209014510-prod-release.apk");
-        if (app.exists()) {
-            options.setCapability("appium:app", app.getAbsolutePath());
-        }
-
+    public URL getAppiumServerURL() {
         try {
-            URL appiumServerUrl = new URL("http://localhost:4723/wd/hub");
-            return new AndroidDriver(appiumServerUrl, options);
+            return new URL("http://localhost:4723");
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+
+    private String getAppPath() {
+        String appVersion = "7971.apk";
+        String appUrl = "https://github.com/HabitRPG/habitica-android" +
+                "/releases/download/4.4/" + appVersion;
+        String appPath = "src/test/resources/apps/" + appVersion;
+
+        File app = new File(appPath);
+        if (!app.exists()) {
+            try (InputStream in = new URL(appUrl).openStream()) {
+                copyInputStreamToFile(in, app);
+            } catch (IOException e) {
+                throw new AssertionError("Failed to download application", e);
+            }
+        }
+        return app.getAbsolutePath();
     }
 }

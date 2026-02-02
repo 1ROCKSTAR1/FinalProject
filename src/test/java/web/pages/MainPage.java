@@ -8,8 +8,8 @@ import static com.codeborne.selenide.Selenide.*;
 public class MainPage {
 
     private final SelenideElement userInnerName = $x("//h3[@class='character-name']"),
-    addTaskButton = $x("//div[contains(text(),'Добавить задачу')]"),
-    taskButton = $x("//div[text()=' задачу ']"),
+    addTaskButton = $("By.xpath: //div[contains(text(),'Добавить задачу') or contains(text(),'Add task')]"),
+    taskButton = $x("//div[text()='Добавить задачу' or text()='Add Task']"),
     taskPlaque = $x("//div[@class='task-content']//p[1]");
 
     private final ElementsCollection listOfTasks = $$x("//div[@class='task-content']//p");

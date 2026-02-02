@@ -3,10 +3,10 @@ package config;
 import org.aeonbits.owner.Config;
 
 @Config.Sources("classpath:${config:mobile}.properties")
-public interface MobileConfig extends Config {
+public interface MobileWikiConfig extends Config {
 
     @Key("platform.name")
-    @DefaultValue("android")
+    @DefaultValue("Android")
     String platformName();
 
     @Key("device.name")
@@ -18,10 +18,18 @@ public interface MobileConfig extends Config {
     String platformVersion();
 
     @Key("app.package")
-    @DefaultValue("com.habitrpg.android.habitica")
+    @DefaultValue("org.wikipedia.alpha")
     String appPackage();
 
     @Key("app.activity")
-    @DefaultValue("com.habitrpg.android.habitica.ui.activities.MainActivity")
+    @DefaultValue("org.wikipedia.main.MainActivity")
     String appActivity();
+
+    @Key("remote.url")
+    @DefaultValue("http://localhost:4723/")
+    String remoteUrl();
+
+    @Key("emulator.app.path")
+    @DefaultValue("src/test/resources/apps/app-alpha-universal-release.apk")
+    String emulatorAppPath();
 }

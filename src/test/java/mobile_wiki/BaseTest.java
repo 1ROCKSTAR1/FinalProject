@@ -1,10 +1,9 @@
-package mobile.base;
+package mobile_wiki;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import helpers.Attach;
 import io.qameta.allure.selenide.AllureSelenide;
-import mobile.driver.EmulatorDriver;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -12,11 +11,11 @@ import org.junit.jupiter.api.BeforeEach;
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.Selenide.open;
 
-public class BaseEmulatorTest {
+public class BaseTest {
 
     @BeforeAll
     static void beforeAll() {
-        Configuration.browser = EmulatorDriver.class.getName();
+        Configuration.browser = MobileDriver.class.getName();
         Configuration.browserSize = null; // обязательный костыль №1
         Configuration.timeout = 10000;
     }

@@ -1,7 +1,7 @@
-package mobile.driver;
+package mobile_wiki;
 
 import com.codeborne.selenide.WebDriverProvider;
-import config.MobileConfig;
+import config.MobileWikiConfig;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
 import org.aeonbits.owner.ConfigFactory;
@@ -16,49 +16,50 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 import static io.appium.java_client.remote.AutomationName.ANDROID_UIAUTOMATOR2;
-import static io.appium.java_client.remote.MobilePlatform.ANDROID;
 import static org.apache.commons.io.FileUtils.copyInputStreamToFile;
 
-public class EmulatorDriver implements WebDriverProvider {
+public class MobileDriver implements WebDriverProvider {
 
-    MobileConfig config = ConfigFactory.create(MobileConfig.class);
+    private static final MobileWikiConfig config =
+            ConfigFactory.create(MobileWikiConfig.class, System.getProperties());
 
     @NonNull
     @Override
     public WebDriver createDriver(@NonNull Capabilities capabilities) {
+
         UiAutomator2Options options = new UiAutomator2Options();
 
         options.setAutomationName(ANDROID_UIAUTOMATOR2)
-                .setPlatformName(ANDROID)
-                .setDeviceName(config.deviceName())
+                .setPlatformName(config.platformName())
                 .setPlatformVersion(config.platformVersion())
+                .setDeviceName(config.deviceName())
                 .setApp(getAppPath())
                 .setAppPackage(config.appPackage())
                 .setAppActivity(config.appActivity());
-        return new AndroidDriver(getAppiumServerURL(), options);
+
+        return new AndroidDriver(getAppiumServerUrl(), options);
     }
 
-    public URL getAppiumServerURL() {
+        public static URL getAppiumServerUrl() {
         try {
-            return new URL("http://localhost:4723");
+            return new URL("http://localhost:4723/");
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
     }
 
-
     private String getAppPath() {
-        String appVersion = "7971.apk";
-        String appUrl = "https://github.com/HabitRPG/habitica-android" +
-                "/releases/download/4.4/" + appVersion;
+        String appVersion = "app-alpha-universal-release.apk";
+        String appUrl = "https://github.com/wikimedia/apps-android-wikipedia" +
+                "/releases/download/latest/" + appVersion;
         String appPath = "src/test/resources/apps/" + appVersion;
 
         File app = new File(appPath);
-        if (!app.exists()) {
+        if(!app.exists()) {
             try (InputStream in = new URL(appUrl).openStream()) {
                 copyInputStreamToFile(in, app);
             } catch (IOException e) {
-                throw new AssertionError("Failed to download application", e);
+                throw new AssertionError("Failed to download app", e);
             }
         }
         return app.getAbsolutePath();

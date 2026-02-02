@@ -81,3 +81,11 @@ task mobile_test(type: Test) {
     }
     systemProperties System.getProperties()
 }
+
+// Запуск mobile wiki тестов
+task mobile_wiki_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("mobile_wiki")
+    }
+    systemProperties System.getProperties()
+}

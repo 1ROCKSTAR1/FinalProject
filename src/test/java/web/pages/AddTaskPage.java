@@ -7,7 +7,7 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class AddTaskPage {
 
-    private final SelenideElement titleField = $("input[placeholder='Добавить название']"),
+    private final SelenideElement titleField = $("input[placeholder='Добавить название'], input[placeholder='Add a title']"),
     createButton = $("button.btn.btn-primary.btn-footer");
 
     @Step("Filling the title of the task")

@@ -182,10 +182,10 @@ gradle clean api_test
 ```
 
 Для локального запуска Mobile тестов из IDE или из терминала необходимо выполнить следующую команду.
-(Необходимо наличие на машине таких тулов как: Appium, Эмулятор мобильного устройства (из Android Studio), UIAutomator tool, установленнные системные переменные для Android)
+(Необходимо наличие на машине таких тулов как: Appium 3.1.2, Эмулятор мобильного устройства (из Android Studio: Google Pixel 4, Android 11.0),UIAutomator tool, установленнные системные переменные для Android)
 
 ```
-gradle clean mobile_test
+gradle clean mobile_wiki_test
 ```
 <a id="remoterun"></a>
 

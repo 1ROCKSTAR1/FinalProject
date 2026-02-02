@@ -20,7 +20,9 @@ public class SettingsScreen {
     }
 
     public boolean checkShowPreviewIsTrue() {
-        return showLinkPreviewsSwitch.is(checked);
+        String checkedValue = showLinkPreviewsSwitch.getAttribute("checked");
+        System.out.println("Switch checked attribute value: " + checkedValue);
+        return "true".equalsIgnoreCase(checkedValue);
     }
 
     public boolean checkPreferOfflineIsFalse() {

@@ -20,7 +20,7 @@ public class MainScreen {
     savedTab = $(id("org.wikipedia.alpha:id/nav_tab_reading_lists")),
     moreTab = $(AppiumBy.id("org.wikipedia.alpha:id/nav_tab_more"));
 
-    private final ElementsCollection searchResults = $$(AppiumBy.xpath("//androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View"));
+    private final ElementsCollection searchResults = $$(AppiumBy.xpath("//*[contains(@text, 'NASCAR') or contains(@text, 'Nascar')]"));
 
     public MainScreen clickOnFakeSearchField() {
         searchField.click();

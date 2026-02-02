@@ -9,7 +9,7 @@ public class MainPage {
 
     private final SelenideElement userInnerName = $x("//h3[@class='character-name']"),
     addTaskButton = $("By.xpath: //div[contains(text(),'Добавить задачу') or contains(text(),'Add task')]"),
-    taskButton = $x("//div[text()='Добавить задачу' or text()='Add Task']"),
+    taskButton = $x("//div[text()='задачу' or text()='To Do']"),
     taskPlaque = $x("//div[@class='task-content']//p[1]");
 
     private final ElementsCollection listOfTasks = $$x("//div[@class='task-content']//p");

@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Selenide.*;
 public class MainPage {
 
     private final SelenideElement userInnerName = $x("//h3[@class='character-name']"),
-    addTaskButton = $x("//div[contains(text(),'Добавить задачу') or contains(text(),'Add task')]"),
+    addTaskButton = $x("//div[contains(text(),'Добавить задачу') or contains(text(),'Add Task')]"),
     taskButton = $x("//div[text()='задачу' or text()='To Do']"),
     taskPlaque = $x("//div[@class='task-content']//p[1]");
 

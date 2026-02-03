@@ -77,7 +77,7 @@ IDE:
 
 ![](https://img.shields.io/badge/IntelliJ_IDEA-2024-000000?style=flat-square&logo=intellij-idea&logoColor=white)
 
-CI/CD и управление:
+CI/CD and management:
 
 ![](https://img.shields.io/badge/Jenkins-2.4-D24939?style=flat-square&logo=jenkins&logoColor=white)
 ![](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white)

@@ -4,7 +4,7 @@ import org.aeonbits.owner.Config;
 
 @Config.Sources({
         "classpath:config/${config}.properties",
-        "classpath:config/web.properties"  // fallback для недостающих свойств
+        "classpath:config/web.properties"
 })
 public interface WebConfig extends Config {
 
@@ -36,7 +36,7 @@ public interface WebConfig extends Config {
     @Key("is.remote")
     boolean isRemote();
 
-    //TODO проверить в случае ошибки удаленного запуска
+    //TODO check in a case when there are some errors while remote run
     @Key("remote.url")
     @DefaultValue("")
     String remoteUrl();

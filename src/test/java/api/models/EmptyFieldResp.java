@@ -1,6 +1,5 @@
 package api.models;
 
-import io.qameta.allure.internal.shadowed.jackson.annotation.JsonAlias;
 import io.qameta.allure.internal.shadowed.jackson.annotation.JsonIgnoreProperties;
 import io.qameta.allure.internal.shadowed.jackson.annotation.JsonProperty;
 import lombok.Data;

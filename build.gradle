@@ -14,7 +14,7 @@ allure {
     adapter {
         aspectjWeaver.set(true)
         frameworks {
-            junit5 { //название фреймворка
+            junit5 {
                 adapterVersion.set("2.24.0")
             }
         }

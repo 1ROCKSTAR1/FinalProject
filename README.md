@@ -163,11 +163,11 @@ gradle clean api_test
 To run tests in Jenkins, you need to click the Build with parameters button and select the required web/api test scope.
 
 <p align="center">
-<img src="src/images/screenshots/jenkins1.png">
+<img src="images/screenshots/jenkins1.png">
 </p>
 
 <p align="center">
-<img src="src/images/screenshots/jenkins2.png">
+<img src="images/screenshots/jenkins2.png">
 </p>
 
 <a id="report"></a>
@@ -176,7 +176,7 @@ To run tests in Jenkins, you need to click the Build with parameters button and 
 ### Graphics
 
 <p align="center">
-<img src="src/images/screenshots/Allure1.png">
+<img src="images/screenshots/Allure1.png">
 </p>
 
 <a id="telegram"></a>
@@ -185,7 +185,7 @@ To run tests in Jenkins, you need to click the Build with parameters button and 
 Following each test run, Jenkins sends a message to Telegram. The message contains information about the run and a chart with test statistics.
 
 <p align="center">
-<img src="src/images/screenshots/tg1.png" width="400">
+<img src="images/screenshots/tg1.png" width="400">
 </p>
 
 <a id="video"></a>
@@ -194,6 +194,6 @@ Following each test run, Jenkins sends a message to Telegram. The message contai
 In the Allure report, each test includes a screenshot of the last step and a video of the test being run. Examples of such videos:
 
 <p align="center">
-<img src="src/images/gif/selenoid.gif " width="1000">
+<img src="images/gif/selenoid.gif " width="1000">
 </p>
 

@@ -12,76 +12,70 @@
 <img src="https://github.com/1ROCKSTAR1/source/blob/main/icons/selenoid.png" width="60" height="50">
 <img src="https://github.com/1ROCKSTAR1/source/blob/main/icons/Jenkins.svg" width="56" height="56">
 <img src="https://github.com/1ROCKSTAR1/source/blob/main/icons/rest-assured.png" width="56" height="56">
-<img src="https://github.com/1ROCKSTAR1/source/blob/main/icons/studio.jpg" width="82" height="95">
-<img src="https://github.com/1ROCKSTAR1/source/blob/main/icons/appium.png" width="56" height="52">
 
 </div>
 
 <details>
-<summary>Подробное описание используемых в проекте технологий</summary>
+<summary>Detailed description of the technologies used in the project</summary>
 
 > </br>
 > 
-> | Логотип                                                                                                                            | Название               | Предназначение                                                                                                    |
+> | Logo                                                                                                                               | Name                   | Purpose                                                                                                           |
 > | :---:                                                                                                                              | :---:                  | :---                                                                                                              |
-> | <a href="https://www.jetbrains.com/idea"><img src="https://github.com/1ROCKSTAR1/source/blob/main/icons/Intelij_IDEA.svg" width="64" height="64" alt="Intellij IDEA"/></a>  | `Intellij`</br>`IDEA`  | Среда разработки программного обеспечения                                                                         |
-> | <a href="https://www.java.com"><img src="https://github.com/1ROCKSTAR1/source/blob/main/icons/Java.svg" width="64" height="64" alt="Java"/></a>                             | `Java`                 | Язык программирования, на котором написаны тесты                                                                  |
-> | <a href="https://junit.org/junit5"><img src="https://github.com/1ROCKSTAR1/source/blob/main/icons/JUnit5.svg" width="64" height="64" alt="JUnit 5"/></a>                    | `JUnit 5`              | Фреймворк для модульного тестирования                                                                             |
-> | <a href="https://gradle.org"><img src="https://github.com/1ROCKSTAR1/source/blob/main/icons/Gradle.svg" width="64" height="64" alt="Gradle"/></a>                           | `Gradle`               | Система автоматической сборки                                                                                     |
-> | <a href="https://selenide.org"><img src="https://github.com/1ROCKSTAR1/source/blob/main/icons/Selenide.svg" width="64" height="64" alt="Selenide"/></a>                     | `Selenide`             | Фреймворк для автоматизированного тестирования веб-приложений                                                     |                                                   |
-> | <a href="https://www.jenkins.io"><img src="https://github.com/1ROCKSTAR1/source/blob/main/icons/Jenkins.svg" width="64" height="64" alt="Jenkins"/></a>                     | `Jenkins`              | Программная система для обеспечения процесса непрерывной интеграции программного обеспечения                      |
-> | <a href="https://allurereport.org"><img src="https://github.com/1ROCKSTAR1/source/blob/main/icons/Allure_Report.svg" width="64" height="64" alt="Allure Report"/></a>              | `Allure`</br>`Report`  | Инструмент для визуализации результатов тестового запуска                                                         |                                                            |
-> | <a href="https://telegram.org/"><img src="https://github.com/1ROCKSTAR1/source/blob/main/icons/telegram.png" width="64" height="64" alt="Telegram"/></a>                    | `Telegram`             | Кроссплатформенная система мгновенного обмена сообщениями (мессенджер)                                            |
-> | <a href="https://aerokube.com/selenoid"><img src="https://github.com/1ROCKSTAR1/source/blob/main/icons/selenoid.png" width="64" height="64" alt="Selenoid"/></a>            | `Selenoid`             | Сервер, который позволяет запускать браузеры в docker-контейнерах                                                 |                                            |
-> | <a href="https://rest-assured.io/"><img src="https://github.com/1ROCKSTAR1/source/blob/main/icons/rest-assured.png" width="64" height="64" alt="Selenoid"/></a>            | `Rest Assured`             | Технология, разработанная для упрощения тестирования и проверки REST API                                                 |
-> | <a href="https://developer.android.com/studio"><img src="https://github.com/1ROCKSTAR1/source/blob/main/icons/studio.jpg" width="64" height="64" alt="Selenoid"/></a>            | `Android Studio`             | IDE для работы с платформой Android                                                 |
-> | <a href="https://appium.io/"><img src="https://github.com/1ROCKSTAR1/source/blob/main/icons/appium.png" width="64" height="64" alt="Selenoid"/></a>            | `Appium`             | Проект с открытым исходным кодом и экосистема связанного с ним программного обеспечения, предназначенная для автоматизации пользовательского интерфейса многих платформ приложений, включая мобильные (iOS, Android, Tizen), браузерные (Chrome, Firefox, Safari) и др.                                                |
+> | <a href="https://www.jetbrains.com/idea"><img src="https://github.com/1ROCKSTAR1/source/blob/main/icons/Intelij_IDEA.svg" width="64" height="64" alt="Intellij IDEA"/></a>  | `Intellij`</br>`IDEA`  | Software development environment                                                                         |
+> | <a href="https://www.java.com"><img src="https://github.com/1ROCKSTAR1/source/blob/main/icons/Java.svg" width="64" height="64" alt="Java"/></a>                             | `Java`                 | The programming language in which the tests are written                                                                  |
+> | <a href="https://junit.org/junit5"><img src="https://github.com/1ROCKSTAR1/source/blob/main/icons/JUnit5.svg" width="64" height="64" alt="JUnit 5"/></a>                    | `JUnit 5`              | Unit testing framework                                                                             |
+> | <a href="https://gradle.org"><img src="https://github.com/1ROCKSTAR1/source/blob/main/icons/Gradle.svg" width="64" height="64" alt="Gradle"/></a>                           | `Gradle`               | Automatic assembly system                                                                                     |
+> | <a href="https://selenide.org"><img src="https://github.com/1ROCKSTAR1/source/blob/main/icons/Selenide.svg" width="64" height="64" alt="Selenide"/></a>                     | `Selenide`             | Framework for automated testing of web applications                                                     |                                                   |
+> | <a href="https://www.jenkins.io"><img src="https://github.com/1ROCKSTAR1/source/blob/main/icons/Jenkins.svg" width="64" height="64" alt="Jenkins"/></a>                     | `Jenkins`              | software System for ensuring the continuous integration process of software                      |
+> | <a href="https://allurereport.org"><img src="https://github.com/1ROCKSTAR1/source/blob/main/icons/Allure_Report.svg" width="64" height="64" alt="Allure Report"/></a>              | `Allure`</br>`Report`  | Tool for visualizing test run results                                                         |                                                            |
+> | <a href="https://telegram.org/"><img src="https://github.com/1ROCKSTAR1/source/blob/main/icons/telegram.png" width="64" height="64" alt="Telegram"/></a>                    | `Telegram`             | Cross-platform instant messaging system (messenger)                                            |
+> | <a href="https://aerokube.com/selenoid"><img src="https://github.com/1ROCKSTAR1/source/blob/main/icons/selenoid.png" width="64" height="64" alt="Selenoid"/></a>            | `Selenoid`             | Server that allows to run browsers in Docker containers                                                 |                                            |
+> | <a href="https://rest-assured.io/"><img src="https://github.com/1ROCKSTAR1/source/blob/main/icons/rest-assured.png" width="64" height="64" alt="Selenoid"/></a>            | `Rest Assured`             | Technology designed to simplify testing and validation of REST APIs                                                |
 > 
 > </details>
 
 </br>
 </br>
 
-## Содержание:
+## Summary:
 
-- [Технологии и инструменты](#tools)
-- [Тестовое покрытие](#cases)
-- [Локальный запуск тестов](#localrun)
-- [Запуск тестов в Jenkins](#remoterun)
-- [Allure отчёт](#report)
-- [Уведомления в Telegram](#telegram)
-- [Видео с примером запуска тестов в Selenoid](#video)
+- [Technologies and tools](#tools)
+- [Test coverage](#cases)
+- [Local run tests](#localrun)
+- [Jenkins run tests](#remoterun)
+- [Allure report](#report)
+- [Telegram notifications](#telegram)
+- [Run tests video example from Selenoid](#video)
 
-📚 Описание проекта
+📚 Project's description
 
-Фреймворк для автоматизированного тестирования приложения Habitica на уровнях WEB и API: веб-интерфейса через Selenide, REST API через RestAssured. И мобильного приложения Wikipedia через Appium. Проект построен на принципах Page Object Model, что обеспечивает чистую архитектуру и легкость поддержки кода.
-Тесты выполняются локально, а так же с помощью Jenkins, Selenoid, эмулятора мобильных приложений. Фреймворк интегрирован в CI/CD pipeline через Jenkins и оснащен детальной системой отчетности Allure, которая наглядно отображает результаты выполнения, включая скриншоты и логи каждого шага.
-Проект использует современный стек технологий: Java 17 для написания тестов, Gradle для сборки, JUnit 5 в качестве тестового фреймворка и Lombok для сокращения шаблонного кода. Вся конфигурация гибко настраивается через параметры, что позволяет быстро адаптировать тесты под разные окружения и сценарии.
+A framework for automated testing of the Habitica application at both the web and API levels: the web interface via Selenide and the REST API via RestAssured. The project is built on Page Object Model principles, ensuring a clean architecture and easy code maintenance.
+Tests are run locally, as well as using Jenkins and Selenoid. The framework is integrated into the CI/CD pipeline via Jenkins and features a detailed Allure reporting system that clearly displays execution results, including screenshots and logs for each step.
+The project uses a modern technology stack: Java 17 for writing tests, Gradle for building, JUnit 5 as a testing framework, and Lombok for reducing boilerplate code. The entire configuration is flexibly configurable via parameters, allowing you to quickly adapt tests to different environments and scenarios.
 
-## 🛠 Технологии
+## 🛠 Technologies
 
-Основной стек:
+Main stack:
 
 ![](https://img.shields.io/badge/Java-17-ED8B00?style=flat-square&logo=java&logoColor=white)
 ![](https://img.shields.io/badge/Gradle-8.0-02303A?style=flat-square&logo=gradle&logoColor=white)
 ![](https://img.shields.io/badge/JUnit-5.9-25A162?style=flat-square&logo=junit5&logoColor=white)
 
-Инструменты тестирования:
+Testing tools:
 
 ![](https://img.shields.io/badge/Selenide-7.2-43B02A?style=flat-square&logo=selenium&logoColor=white)
 ![](https://img.shields.io/badge/RestAssured-5.3-00A98F?style=flat-square&logo=rest&logoColor=white)
-![](https://img.shields.io/badge/Appium-2.0-0D96F6?style=flat-square&logo=appium&logoColor=white)
 ![](https://img.shields.io/badge/Selenoid-1.10-3EAAAF?style=flat-square&logo=docker&logoColor=white)
 
-Утилиты и библиотеки:
+Utilities and libraries:
 
 ![](https://img.shields.io/badge/Lombok-1.18-E6B91E?style=flat-square&logo=lombok&logoColor=white)
 ![](https://img.shields.io/badge/Allure_Report-2.24-FF6F61?style=flat-square&logo=allure&logoColor=white)
 
-Среды разработки:
+IDE:
 
 ![](https://img.shields.io/badge/IntelliJ_IDEA-2024-000000?style=flat-square&logo=intellij-idea&logoColor=white)
-![](https://img.shields.io/badge/Android_Studio-2023-3DDC84?style=flat-square&logo=android-studio&logoColor=white)
 
 CI/CD и управление:
 
@@ -89,108 +83,84 @@ CI/CD и управление:
 ![](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white)
 ![](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
 
-## 🚀 Возможности фреймворка:
+## 🚀Framework capabilities:
 
 
-🌐 Веб-тестирование
+🌐 Web Testing
 
-Selenide: Упрощенный и мощный фреймворк для UI тестирования
+Selenide: A simplified and powerful framework for UI testing
 
-Selenoid: Запуск тестов в Docker-контейнерах для изоляции и параллельности
+Selenoid: Run tests in Docker containers for isolation and parallelism
 
-Автоматическое управление браузерами
+Automatic browser management
 
-🔁 API-тестирование
+🔁 API Testing
 
-REST Assured: Полнофункциональная библиотека для тестирования REST API
+REST Assured: A full-featured library for REST API testing
 
-Поддержка различных форматов данных (JSON, XML)
+Support for various data formats (JSON, XML)
 
-Валидация схемы ответов
+Response schema validation
 
-📱 Мобильное тестирование
+➕ Additional Features
 
-Appium: Тестирование Android приложения
+Project Lombok: Reduce boilerplate code through annotations
 
-Поддержка нативных и гибридных приложений
+Allure Report: Detailed visualization of test results
 
-Интеграция с эмуляторами и реальными устройствами
+Parallel test execution
 
-➕ Дополнительные возможности
-
-Project Lombok: Сокращение boilerplate-кода через аннотации
-
-Allure Report: Детальная визуализация результатов тестирования
-
-Параллельный запуск тестов
-
-Конфигурация через environment variables
+Configuration via environment variables
 
 <a id="cases"></a>
 
-## 📄 Тестовое покрытие:
+## 📄 Test Coverage:
 ### 🌐 Web
-◾ Проверка логина с валидными данными
+◾ Login validation with valid data
 
-◾ Проверка логина без заполненного поля имени
+◾ Login validation without a populated name field
 
-◾ Проверка логина без заполненного поля пароля
+◾ Login validation without a populated password field
 
-◾ Проверка логина без заполненных полей имени и пароля
+◾ Login validation without populated name and password fields
 
-◾ Проверка добавления задачи 1
+◾ Task 1 added
 
-◾ Проверка добавления задачи 2
+◾ Task 2 added
 
 ### 🔁 API
-◾ Проверка логина с получением ID и токена
+◾ Login validation with ID and token receipt
 
-◾ Проверка логина с несуществующим пользователем
+◾ Login validation with a non-existent user
 
-◾ Проверка логина с пустым именем
+◾ Login validation with an empty name
 
-◾ Проверка логина с пустым паролем
+◾ Login validation with an empty password
 
-◾ Проверка создания нового тега
+◾ New tag creation validation
 
-◾ Проверка создания нового тега и его удаления
+◾ New tag creation validation and deletion validation
 
-### 📱 Mobile
-◾ Проверка результатов поиска в поисковой строке
-
-◾ Проверка открытия вкладки Saved
-
-◾ Проверка открытия вкладки Settings
-
-◾ Проверка switch 'show link previews'
-
-◾ Проверка switch 'prefer offline' 
 
 <a id="localrun"></a>
 
-## Локальный запуск тестов
-Для локального запуска WEB тестов из IDE или из терминала необходимо выполнить следующую команду
+## Running tests locally
+To run WEB tests locally from the IDE or from the terminal, run the following command
 
 ```
 gradle clean web_test
 ```
 
-Для локального запуска API тестов из IDE или из терминала необходимо выполнить следующую команду
+To run API tests locally from the IDE or from the terminal, you need to run the following command
 
 ```
 gradle clean api_test
 ```
 
-Для локального запуска Mobile тестов из IDE или из терминала необходимо выполнить следующую команду.
-(Необходимо наличие на машине таких тулов как: Appium 3.1.2, Эмулятор мобильного устройства (из Android Studio: Google Pixel 4, Android 11.0),UIAutomator tool, установленнные системные переменные для Android)
-
-```
-gradle clean mobile_wiki_test
-```
 <a id="remoterun"></a>
 
-## Запуск тестов в [Jenkins](https://jenkins.autotests.cloud/job/%D0%A138_Aastri_Final_Project/)
-Для запуска тестов в Jenkins нужно нажать на кнопку Build with parameters и выбрать необходимый скоуп тестов web/api
+## Run tests in [Jenkins](https://jenkins.autotests.cloud/job/%D0%A138_Aastri_Final_Project/)
+To run tests in Jenkins, you need to click the Build with parameters button and select the required web/api test scope.
 
 <p align="center">
 <img src="src/images/screenshots/jenkins1.png">
@@ -202,17 +172,17 @@ gradle clean mobile_wiki_test
 
 <a id="report"></a>
 
-## [Allure отчёт](https://jenkins.autotests.cloud/job/%D0%A138_Aastri_Final_Project/allure/)
-### Графики
+## [Allure report](https://jenkins.autotests.cloud/job/%D0%A138_Aastri_Final_Project/allure/)
+### Graphics
 
 <p align="center">
 <img src="src/images/screenshots/Allure1.png">
 </p>
 
 <a id="telegram"></a>
-## Уведомления в Telegram
+## Telegram notifications
 
-По результатам каждого прогона тестов в Jenkins отправляется сообщение в Telegram. Сообщение содержит информацию о прогоне, а также диаграмму со статистикой прохождения тестов.
+Following each test run, Jenkins sends a message to Telegram. The message contains information about the run and a chart with test statistics.
 
 <p align="center">
 <img src="src/images/screenshots/tg1.png" width="400">
@@ -220,8 +190,8 @@ gradle clean mobile_wiki_test
 
 <a id="video"></a>
 
-## Видео с примером запуска тестов в Selenoid
-В Allure отчёте к каждому тесту прикладываются скриншот с последнего шага, и видео прохождения теста. Примеры таких видео:
+## Video with an example of running tests in Selenoid
+In the Allure report, each test includes a screenshot of the last step and a video of the test being run. Examples of such videos:
 
 <p align="center">
 <img src="src/images/gif/selenoid.gif " width="1000">

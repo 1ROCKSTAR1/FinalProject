@@ -110,4 +110,38 @@ public class Tests extends BaseTest {
 
         Assertions.assertTrue(taskList);
     }
+
+    @Test
+    @Epic("Web")
+    @Feature("Top buttons")
+    @DisplayName("Inventory button - page")
+    public void checkItemsPage() {
+
+        boolean itemsPlaqueShown = loginPage
+                .navigateToTheForm()
+                .fillTheLoginField(login)
+                .fillThePasswordField(password)
+                .clickOnSubmitButton()
+                .clickOnInventoryButton()
+                .checkItemsPlaque();
+
+        Assertions.assertTrue(itemsPlaqueShown);
+    }
+
+    @Test
+    @Epic("Web")
+    @Feature("Top buttons")
+    @DisplayName("Market button - page")
+    public void checkShopsPage() {
+
+        boolean marketPlaqueShown = loginPage
+                .navigateToTheForm()
+                .fillTheLoginField(login)
+                .fillThePasswordField(password)
+                .clickOnSubmitButton()
+                .clickOnShopsButton()
+                .checkMarketPlaque();
+
+        Assertions.assertTrue(marketPlaqueShown);
+    }
 }

@@ -128,6 +128,10 @@ Configuration via environment variables
 
 ◾ Task 2 added
 
+◾ Check Inventory page shown
+
+◾ Check Shops page shown
+
 ### 🔁 API
 ◾ Login validation with ID and token receipt
 

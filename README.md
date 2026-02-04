@@ -1,5 +1,30 @@
 # 🎯 Final Project
 
+<h1>Проект автоматизации тестирования <a target="_blank" href="https://habitica.com/"> Habitica.com </a> </h1>
+
+<p align="center">
+<img src="images/screenshots/habitica_logo.png"  >
+</p>
+
+## Summary:
+
+- [Technologies and tools](#tools)
+- [Test coverage](#cases)
+- [Local run tests](#localrun)
+- [Jenkins run tests](#remoterun)
+- [Allure report](#report)
+- [Telegram notifications](#telegram)
+- [Run tests video example from Selenoid](#video)
+
+📚 Project's description
+
+A framework for automated testing of the Habitica application at both the web and API levels: the web interface via Selenide and the REST API via RestAssured. The project is built on Page Object Model principles, ensuring a clean architecture and easy code maintenance.
+Tests are run locally, as well as using Jenkins and Selenoid. The framework is integrated into the CI/CD pipeline via Jenkins and features a detailed Allure reporting system that clearly displays execution results, including screenshots and logs for each step.
+The project uses a modern technology stack: Java 17 for writing tests, Gradle for building, JUnit 5 as a testing framework, and Lombok for reducing boilerplate code. The entire configuration is flexibly configurable via parameters, allowing you to quickly adapt tests to different environments and scenarios.
+
+
+## 🛠 Technologies
+
 <a id="tools"></a>
 <div align="center">
 
@@ -37,51 +62,6 @@
 
 </br>
 </br>
-
-## Summary:
-
-- [Technologies and tools](#tools)
-- [Test coverage](#cases)
-- [Local run tests](#localrun)
-- [Jenkins run tests](#remoterun)
-- [Allure report](#report)
-- [Telegram notifications](#telegram)
-- [Run tests video example from Selenoid](#video)
-
-📚 Project's description
-
-A framework for automated testing of the Habitica application at both the web and API levels: the web interface via Selenide and the REST API via RestAssured. The project is built on Page Object Model principles, ensuring a clean architecture and easy code maintenance.
-Tests are run locally, as well as using Jenkins and Selenoid. The framework is integrated into the CI/CD pipeline via Jenkins and features a detailed Allure reporting system that clearly displays execution results, including screenshots and logs for each step.
-The project uses a modern technology stack: Java 17 for writing tests, Gradle for building, JUnit 5 as a testing framework, and Lombok for reducing boilerplate code. The entire configuration is flexibly configurable via parameters, allowing you to quickly adapt tests to different environments and scenarios.
-
-## 🛠 Technologies
-
-Main stack:
-
-![](https://img.shields.io/badge/Java-17-ED8B00?style=flat-square&logo=java&logoColor=white)
-![](https://img.shields.io/badge/Gradle-8.0-02303A?style=flat-square&logo=gradle&logoColor=white)
-![](https://img.shields.io/badge/JUnit-5.9-25A162?style=flat-square&logo=junit5&logoColor=white)
-
-Testing tools:
-
-![](https://img.shields.io/badge/Selenide-7.2-43B02A?style=flat-square&logo=selenium&logoColor=white)
-![](https://img.shields.io/badge/RestAssured-5.3-00A98F?style=flat-square&logo=rest&logoColor=white)
-![](https://img.shields.io/badge/Selenoid-1.10-3EAAAF?style=flat-square&logo=docker&logoColor=white)
-
-Utilities and libraries:
-
-![](https://img.shields.io/badge/Lombok-1.18-E6B91E?style=flat-square&logo=lombok&logoColor=white)
-![](https://img.shields.io/badge/Allure_Report-2.24-FF6F61?style=flat-square&logo=allure&logoColor=white)
-
-IDE:
-
-![](https://img.shields.io/badge/IntelliJ_IDEA-2024-000000?style=flat-square&logo=intellij-idea&logoColor=white)
-
-CI/CD and management:
-
-![](https://img.shields.io/badge/Jenkins-2.4-D24939?style=flat-square&logo=jenkins&logoColor=white)
-![](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white)
-![](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
 
 ## 🚀Framework capabilities:
 

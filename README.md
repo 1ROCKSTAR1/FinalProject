@@ -1,10 +1,14 @@
 # 🎯 Final Project
 
-<h1>Проект автоматизации тестирования <a target="_blank" href="https://habitica.com/"> Habitica.com </a> </h1>
+<h1>Test automation project for <a target="_blank" href="https://habitica.com/"> Habitica.com </a> </h1>
 
 <p align="center">
 <img src="images/screenshots/habitica_logo.png"  >
 </p>
+
+## About Habitica
+Habitica is a task tracker that allows users to plan their lives and more. Habitica is available as a web version and as apps for Android and iOS.
+The project consists of UI and API tests. <br/>
 
 ## Summary:
 
